@@ -8,6 +8,6 @@ class Api::V1::CarController < ApplicationController
   private
 
     def car
-      @car ||= Car.find_by(:name => params[:id])
+      @car ||= Car.find_by(:id => params[:id])
     end
 end
