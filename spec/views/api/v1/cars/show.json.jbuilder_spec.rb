@@ -10,7 +10,7 @@ RSpec.describe "api/v1/cars/show", type: :view do
 
   it "show data car_slug attribute" do
     render
-    expect(JSON.parse(response)["car_slug"]).to eq(@car.car_slug)
+    expect(JSON.parse(response)["data"]["car"]["car_slug"]).to eq(@car.car_slug)
   end
 
   it "should show max_speed_on_track data" do
