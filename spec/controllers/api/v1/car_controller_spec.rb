@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CarController, type: :controller do
+RSpec.describe Api::V1::CarController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
