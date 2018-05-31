@@ -35,5 +35,9 @@ RSpec.describe SpeedCalculation, type: :model do
       expect(speed.max_speed).to match(/km\/h/)
     end
 
+    it "calculates slowing factor for surface" do
+      expect(speed.slowing_factor_surface).to eq 98
+    end
+
   end
 end
