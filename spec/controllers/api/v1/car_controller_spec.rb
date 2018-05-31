@@ -14,7 +14,7 @@ RSpec.describe Api::V1::CarController, type: :controller do
     end
 
     it "returns with car slug" do
-      get :show, id: @car.car_slug
+      get :show, id: @car.id
       expect(JSON.parse(response.body)["car_slug"]).to eq @car.car_slug
     end
   end
