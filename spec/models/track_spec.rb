@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Track, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @car = FactoryBot.create :track }
+  subject { @car }
+
+  it { should respond_to :country }
 end
