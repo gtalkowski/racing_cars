@@ -8,12 +8,12 @@ class SpeedCalculation
   end
 
   def max_speed
-    "#{@car_speed.to_i - slowing_factor_surface.to_i}"
+    "#{@car_speed.to_f - slowing_factor_surface.to_f}"
   end
 
   def slowing_factor_surface
     surface_percentage = SURFACE_TYPE[track.surface_type.to_sym].to_f
-    @car_speed.to_i - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
+    @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
   end
 
   def track
