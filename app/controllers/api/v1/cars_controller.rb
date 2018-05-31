@@ -1,4 +1,4 @@
-class Api::V1::CarsController < ApplicationController
+class Api::V1::CarsController < ApiController
 
   before_action :car
 
