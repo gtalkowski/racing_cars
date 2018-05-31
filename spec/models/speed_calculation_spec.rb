@@ -28,7 +28,11 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "should display max speed on track as float number" do
-      expect(speed.max_speed).to eq "182.0"
+      expect(speed.max_speed).to eq "182.0km/h"
+    end
+
+    it "should have km/h in result" do
+      expect(speed.max_speed).to match(/km\/h/)
     end
 
   end

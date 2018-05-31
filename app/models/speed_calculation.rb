@@ -8,7 +8,7 @@ class SpeedCalculation
   end
 
   def max_speed
-    "#{@car_speed.to_f - slowing_factor_surface.to_f}"
+    "#{@car_speed.to_f - slowing_factor_surface.to_f}km/h"
   end
 
   def slowing_factor_surface
