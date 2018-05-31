@@ -1,6 +1,6 @@
 class Api::V1::CarsController < ApiController
 
-  before_action :car
+  before_action :set_car
 
   def show
     #render json: @car
@@ -8,7 +8,7 @@ class Api::V1::CarsController < ApiController
 
   private
 
-    def car
+    def set_car
       @car = Car.find_by(:car_slug => params[:id])
     end
 end
