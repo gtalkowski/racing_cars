@@ -23,15 +23,15 @@ RSpec.describe Api::V1::CarsController, type: :controller do
     end
 
     it "should show 'no track selected' if no track params specified" do
-      params = {id: @car.car_slug, track: "" }
+      params = {id: @car.car_slug, track: nil }
       get :show, params
       expect(json["data"]["car"]["max_speed_on_track"]).to eq "no track selected"
     end
 
     it "should have track name" do
-      params = { id: @car.car_slug, track: "nurburgring" }
+      params = { id: @car.car_slug, :track => "nurburgring" }
       get :show, params
-      expect(json["data"]["car"]["max_speed_on_track"]).to be < @car.max_speed
+      expect(json["data"]["car"]["max_speed_on_track"].to_i).to be < @car.max_speed.to_i
     end
   end
 
