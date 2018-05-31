@@ -15,6 +15,6 @@ RSpec.describe "api/v1/cars/show", type: :view do
 
   it "should show max_speed_on_track data" do
     render
-    expect(JSON.parse(response)["max_speed_on_track"]).not_to be_nil
+    expect(JSON.parse(response)["data"]["car"]["max_speed_on_track"]).not_to be_nil
   end
 end
