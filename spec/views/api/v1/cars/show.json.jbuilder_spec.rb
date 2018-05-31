@@ -27,4 +27,5 @@ RSpec.describe "api/v1/cars/show", type: :view do
     render
     expect(JSON.parse(response)["data"]["car"]["max_speed"]).to eq "#{@car.max_speed}km/h"
   end
+
 end
