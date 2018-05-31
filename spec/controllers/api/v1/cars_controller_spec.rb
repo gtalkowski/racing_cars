@@ -10,7 +10,12 @@ RSpec.describe Api::V1::CarsController, type: :controller do
 
     before(:each) do
       @car = FactoryBot.create :car
-      FactoryBot.create :track
+      FactoryBot.create(:track,
+                        country: "Germany",
+                        name: 'nurburgring',
+                        timezone: "CET",
+                        surface_type: "snow"
+                       )
     end
 
     it "returns http success" do

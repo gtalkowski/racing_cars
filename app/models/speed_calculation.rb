@@ -1,6 +1,7 @@
 class SpeedCalculation
 
   SURFACE_TYPE = {:snow => 35, :gravel => 12, :asphalt => 0}
+  DRIVING_TIME = {540...1079 => 0, 1080...1289 => 8, 1290...1439 => 15, 0...359 => 15, 360...539 => 8}
 
   def initialize(car_speed, track)
     @car_speed = car_speed
@@ -8,7 +9,7 @@ class SpeedCalculation
   end
 
   def max_speed
-    "#{@car_speed.to_f - slowing_factor_surface.to_f - slowing_factor_time_of_the_day.to_f}km/h"
+    "#{@car_speed.to_f - slowing_factor_surface.to_f - slowing_factor_current_driving_time.to_f}km/h"
   end
 
   def slowing_factor_surface
@@ -16,8 +17,14 @@ class SpeedCalculation
     @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
   end
 
-  def slowing_factor_time_of_the_day
-    30
+  def slowing_factor_current_driving_time
+    ""
+  end
+
+  def time_of_the_day
+    time = Time.new
+    cur_time_in_timezone = time.in_time_zone(track.timezone)
+    minutes = cur_time_in_timezone.strftime("%H:%m")
   end
 
   def track

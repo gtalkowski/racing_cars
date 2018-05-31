@@ -32,7 +32,12 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "calculates time on the day slowing factor" do
-      expect(speed.slowing_factor_time_of_the_day).not_to be_nil
+      expect(speed.slowing_factor_current_driving_time).not_to be_nil
+    end
+
+    it "calculates time of the day as CET timezone" do
+      time = Time.zone.now
+      expect(speed.time_of_the_day).to eq time.strftime("%H:%m")
     end
 
   end
