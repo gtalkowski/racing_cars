@@ -24,7 +24,7 @@ class SpeedCalculation
   def time_of_the_day
     time = Time.new
     cur_time_in_timezone = time.in_time_zone(track.timezone)
-    minutes = cur_time_in_timezone.strftime("%H:%m")
+    cur_time_in_timezone.strftime("%H:%m")
   end
 
   def track

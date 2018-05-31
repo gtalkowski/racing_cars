@@ -8,6 +8,7 @@ RSpec.describe SpeedCalculation, type: :model do
                                   timezone: "CET",
                                   surface_type: "snow"
                                  ) }
+  let(:time) { Time.zone.now }
 
   describe "Surface factor" do
 
@@ -31,13 +32,28 @@ RSpec.describe SpeedCalculation, type: :model do
       expect(speed.slowing_factor_surface).to eq 98
     end
 
+  end
+
+  describe "Time of the day factor" do
+    before(:each) do
+      track
+    end
+
     it "calculates time on the day slowing factor" do
       expect(speed.slowing_factor_current_driving_time).not_to be_nil
     end
 
     it "calculates time of the day as CET timezone" do
-      time = Time.zone.now
       expect(speed.time_of_the_day).to eq time.strftime("%H:%m")
+    end
+
+    it "calculates slowing factor depends ot the day time" do
+      #driving_time = SpeedCalculation::DRIVING_TIME.select {|d_time| d_time === 540 }
+      #binding.pry
+    end
+
+    it "convert time to minutes" do
+      expect(speed.hours_to_minutes("20:00")).to eq 45
     end
 
   end
