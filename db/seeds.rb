@@ -8,8 +8,8 @@
   #)
 #end
 
-Track.delete_all
-Track.create(country: "Germany", name: "nurburgring", timezone: "CET", surface_type: "asphalt")
-Track.create(country: "Australia", name: "sydney_motorsport_park", timezone: "Australia/Sydney", surface_type: "gravel")
-Track.create(country: "Canada", name: "circuit_gilles_villenaeuve_montreal", timezone: "America/Montreal", surface_type: "snow")
-Track.create(country: "Macau", name: "guia_circut", timezone: "Asia/Macau", surface_type: "asphalt")
+#Track.delete_all
+#Track.create(country: "Germany", name: "nurburgring", timezone: "CET", surface_type: "asphalt")
+#Track.create(country: "Australia", name: "sydney_motorsport_park", timezone: "Australia/Sydney", surface_type: "gravel")
+#Track.create(country: "Canada", name: "circuit_gilles_villenaeuve_montreal", timezone: "America/Montreal", surface_type: "snow")
+#Track.create(country: "Macau", name: "guia_circut", timezone: "Asia/Macau", surface_type: "asphalt")
