@@ -8,7 +8,7 @@ class SpeedCalculation
   end
 
   def max_speed
-    "#{@car_speed.to_f - slowing_factor_surface.to_f}km/h"
+    "#{@car_speed.to_f - slowing_factor_surface.to_f - slowing_factor_time_of_the_day.to_f}km/h"
   end
 
   def slowing_factor_surface
@@ -16,8 +16,8 @@ class SpeedCalculation
     @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
   end
 
-  def time_of_the_day
-    ""
+  def slowing_factor_time_of_the_day
+    30
   end
 
   def track

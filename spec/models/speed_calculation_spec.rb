@@ -23,14 +23,6 @@ RSpec.describe SpeedCalculation, type: :model do
       expect(speed.max_speed.to_i).to be < 280
     end
 
-    it "display max_speed_on_track as 182" do
-      expect(speed.max_speed.to_i).to eq 182
-    end
-
-    it "should display max speed on track as float number" do
-      expect(speed.max_speed).to eq "182.0km/h"
-    end
-
     it "should have km/h in result" do
       expect(speed.max_speed).to match(/km\/h/)
     end
@@ -40,7 +32,7 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "calculates time on the day slowing factor" do
-      expect(speed.time_of_the_day).not_to be_nil
+      expect(speed.slowing_factor_time_of_the_day).not_to be_nil
     end
 
   end
