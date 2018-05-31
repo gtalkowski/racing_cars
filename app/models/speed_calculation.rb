@@ -33,6 +33,12 @@ class SpeedCalculation
     hour * 60 + minutes
   end
 
+  def minutes_to_hours(minutes)
+    hours = minutes.to_i / 60
+    minutes = minutes % 60
+    "#{hours}:#{"%02d" % minutes}"
+  end
+
   def track
     Track.find_by(name: @track.downcase)
   end
