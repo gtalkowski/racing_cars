@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe SpeedCalculation, type: :model do
   let(:speed) { SpeedCalculation.new(280,'nurburgring') }
+  let(:track) { FactoryBot.create(:track,
+                                  country: "Germany",
+                                  name: 'nurburgring',
+                                  timezone: "CET",
+                                  surface_type: "snow"
+                                 ) }
 
   describe "Surface factor" do
 
