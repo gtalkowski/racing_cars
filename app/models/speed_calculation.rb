@@ -6,6 +6,6 @@ class SpeedCalculation
   end
 
   def max_speed
-    "#{@car_speed.to_i}"
+    "#{@car_speed.to_i - 30}"
   end
 end
