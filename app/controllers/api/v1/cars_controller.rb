@@ -3,7 +3,7 @@ class Api::V1::CarsController < ApplicationController
   before_action :car
 
   def show
-    render json: @car
+    #render json: @car
   end
 
   private
