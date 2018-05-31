@@ -53,7 +53,7 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "convert time to minutes" do
-      expect(speed.hours_to_minutes("20:00")).to eq 45
+      expect(speed.hours_to_minutes("20:00")).to eq 1200
     end
 
   end

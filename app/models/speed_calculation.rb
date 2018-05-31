@@ -27,6 +27,12 @@ class SpeedCalculation
     cur_time_in_timezone.strftime("%H:%m")
   end
 
+  def hours_to_minutes(time)
+    hour = time.split(":")[0].to_i
+    minutes = time.split(":")[1].to_i
+    hour * 60 + minutes
+  end
+
   def track
     Track.find_by(name: @track.downcase)
   end
