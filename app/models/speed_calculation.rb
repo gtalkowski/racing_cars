@@ -16,6 +16,10 @@ class SpeedCalculation
     @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
   end
 
+  def time_of_the_day
+    ""
+  end
+
   def track
     Track.find_by(name: @track.downcase)
   end
