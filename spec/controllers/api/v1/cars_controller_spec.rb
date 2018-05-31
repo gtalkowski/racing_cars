@@ -27,6 +27,12 @@ RSpec.describe Api::V1::CarsController, type: :controller do
       get :show, params
       expect(json["data"]["car"]["max_speed_on_track"]).to eq "no track selected"
     end
+
+    it "should have track name" do
+      params = { id: @car.car_slug, track: "nurburgring" }
+      get :show, params
+      expect(json["data"]["car"]["max_speed_on_track"]).to be < @car.max_speed
+    end
   end
 
 end
