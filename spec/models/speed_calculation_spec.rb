@@ -39,5 +39,9 @@ RSpec.describe SpeedCalculation, type: :model do
       expect(speed.slowing_factor_surface).to eq 98
     end
 
+    it "calculates time on the day slowing factor" do
+      expect(speed.time_of_the_day).not_to be_nil
+    end
+
   end
 end
