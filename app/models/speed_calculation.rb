@@ -18,7 +18,8 @@ class SpeedCalculation
   end
 
   def slowing_factor_current_driving_time
-    ""
+    factor = DRIVING_TIME.select { |time| time === hours_to_minutes(time_of_the_day) }
+    binding.pry
   end
 
   def time_of_the_day
