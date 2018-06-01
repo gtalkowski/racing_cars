@@ -14,15 +14,20 @@ http://localhost:3000/api/v1/cars/ford_shelby?track=nurburgring
 
 ### Data in database
 
-Cars:
-```
-"Subaru Impreza" => 280, "Ford Shelby" => 250, "Dodge Challenger" => 310
-```
+#### Cars:
+Car type. |. Max Speed
+----------|-----------
+Subaru Impreza | 280km/h
+Ford Shelby  | 250km/h
+Dodge Challenger | 310km/h
 
-Tracks:
-```
-country: "Germany", name: "nurburgring", timezone: "CET", surface_type: "asphalt"
-country: "Australia", name: "sydney_motorsport_park", timezone: "Australia/Sydney", surface_type: "gravel"
-country: "Canada", name: "circuit_gilles_villenaeuve_montreal", timezone: "America/Montreal", surface_type: "snow"
-country: "Macau", name: "guia_circut", timezone: "Asia/Macau", surface_type: "asphalt"
-```
+
+#### Tracks:
+Country | Name | Timezone | Surface type
+--------|------|----------|-------------
+Germany | Nurburgring | CET | Asphalt
+Australia | Sydney Motorsport Park | Australia/Sydney | gravel
+Canada | Circuit Gilles Villenaeuve Montreal | America/Montreal | Snow
+Macau | Guia Circut | Asia/Macau | Asphalt
+
+System expose public interface which accepts GET request with slug of the car and respond with it
