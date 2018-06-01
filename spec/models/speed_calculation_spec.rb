@@ -31,7 +31,7 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "calculates slowing factor for surface" do
-      expect(speed.slowing_factor_surface).to eq 98
+      expect(speed.send(:slowing_factor_surface)).to eq 98
     end
 
   end
@@ -42,24 +42,26 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "calculates time on the day slowing factor" do
-      expect(speed.slowing_factor_current_driving_time).not_to be_nil
+      expect(speed.send(:slowing_factor_current_driving_time)).not_to be_nil
     end
 
     it "calculates time of the day as CET timezone" do
-      expect(speed.time_of_the_day).to eq Time.zone.now.strftime("%H:%m")
+      expect(speed.send(:time_of_the_day)).to eq Time.zone.now.strftime("%H:%m")
     end
 
     it "calculates slowing factor depends ot the day time" do
-      factor = dtime.select {|d_time| d_time === speed.hours_to_minutes(Time.zone.now.strftime("%H:%m")) }
-      expect(speed.slowing_factor_current_driving_time).to eq factor.values[0]
+      factor = dtime.select {|d_time|
+        d_time === speed.send( :hours_to_minutes, Time.zone.now.strftime("%H:%m") )
+      }
+      expect(speed.send(:slowing_factor_current_driving_time)).to eq factor.values[0]
     end
 
     it "convert time to minutes" do
-      expect(speed.hours_to_minutes("20:00")).to eq 1200
+      expect(speed.send(:hours_to_minutes, "20:00")).to eq 1200
     end
 
     it "convert minutes to real time" do
-      expect(speed.minutes_to_hours(1200)).to eq "20:00"
+      expect(speed.send(:minutes_to_hours, 1200)).to eq "20:00"
     end
 
   end

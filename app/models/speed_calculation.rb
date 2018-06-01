@@ -12,6 +12,8 @@ class SpeedCalculation
     "#{@car_speed.to_f - slowing_factor_surface.to_f - slowing_factor_current_driving_time.to_f}km/h"
   end
 
+  private
+
   def slowing_factor_surface
     surface_percentage = @track ? SURFACE_TYPE[@track.surface_type.to_sym].to_f : 0
     @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
