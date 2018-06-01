@@ -9,6 +9,9 @@ RSpec.describe SpeedCalculation, type: :model do
                                   surface_type: "snow"
                                  ) }
   let(:time) { Time.zone.now }
+  let(:dtime) {
+    {540...1079 => 0, 1080...1289 => 8, 1290...1439 => 15, 0...359 => 15, 360...539 => 8}
+  }
 
   describe "Surface factor" do
 
@@ -48,8 +51,8 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
     it "calculates slowing factor depends ot the day time" do
-      #driving_time = SpeedCalculation::DRIVING_TIME.select {|d_time| d_time === 540 }
-      #binding.pry
+      factor = dtime.select {|d_time| d_time === speed.hours_to_minutes(time.strftime("%H:%m")) }
+      expect(speed.slowing_factor_current_driving_time).to eq factor.values[0]
     end
 
     it "convert time to minutes" do
