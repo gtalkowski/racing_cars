@@ -63,4 +63,12 @@ RSpec.describe SpeedCalculation, type: :model do
     end
 
   end
+
+  describe "Speed without track as params" do
+    let(:speed) { SpeedCalculation.new(280,nil) }
+
+    it "shouldn't be nil" do
+      expect(speed.max_speed).not_to be_nil
+    end
+  end
 end
