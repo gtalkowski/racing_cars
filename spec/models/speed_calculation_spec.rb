@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SpeedCalculation, type: :model do
-  let(:speed) { SpeedCalculation.new(280,'nurburgring') }
+  let(:speed) { SpeedCalculation.new(280,Track.find_by(name: 'nurburgring')) }
   let(:track) { FactoryBot.create(:track,
                                   country: "Germany",
                                   name: 'nurburgring',

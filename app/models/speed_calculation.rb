@@ -13,7 +13,7 @@ class SpeedCalculation
   end
 
   def slowing_factor_surface
-    surface_percentage = SURFACE_TYPE[track.surface_type.to_sym].to_f
+    surface_percentage = @track ? SURFACE_TYPE[@track.surface_type.to_sym].to_f : 0
     @car_speed.to_f - (@car_speed.to_f * ((100 - surface_percentage.to_f) / 100))
   end
 
@@ -24,7 +24,7 @@ class SpeedCalculation
 
   def time_of_the_day
     time = Time.new
-    cur_time_in_timezone = time.in_time_zone(track.timezone)
+    cur_time_in_timezone = time.in_time_zone(@track.timezone)
     cur_time_in_timezone.strftime("%H:%m")
   end
 
@@ -40,7 +40,4 @@ class SpeedCalculation
     "#{hours}:#{"%02d" % minutes}"
   end
 
-  def track
-    Track.find_by(name: @track.downcase)
-  end
 end
